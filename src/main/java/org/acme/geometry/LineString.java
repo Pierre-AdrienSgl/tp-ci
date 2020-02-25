@@ -22,6 +22,11 @@ public class LineString implements Geometry {
 		return TYPE;
 	}
 	
+	@Override
+	public boolean isEmpty() {
+		return this.points.isEmpty();
+	}
+	
 	public int getNumPoints() {
 		return this.points.size();
 	}
@@ -29,5 +34,35 @@ public class LineString implements Geometry {
 	public Point getPointN(int n) {
 		return points.get(n);
 	}
+
+	@Override
+	public void translate(double dx, double dy) {
+		for (Point point : points) {
+			point.translate(dx, dy);
+		}
+	}
+
+	
+	@Override
+	public LineString clone() {
+		// Il faut copier le tableau
+		List<Point> newPoints = new ArrayList<>(getNumPoints());
+		for (Point point : points) {
+			// les points ne sont pas immuable
+			newPoints.add(point.clone());
+		}
+		return new LineString(newPoints);
+	}
+	
+	
+	@Override
+	public Envelope getEnvelope() {
+		EnvelopeBuilder builder = new EnvelopeBuilder();
+		for (Point point : points) {
+			builder.insert(point.getCoordinate());
+		}
+		return builder.build();
+	}
+
 
 }

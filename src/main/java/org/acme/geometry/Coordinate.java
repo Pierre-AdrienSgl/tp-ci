@@ -4,7 +4,7 @@ package org.acme.geometry;
  * 
  * Classe coordonnée à l'étape 0.1
  * 
- * @author MBorne
+ * 
  *
  */
 public class Coordinate {
@@ -14,7 +14,7 @@ public class Coordinate {
 	private double y;
 	
 	public Coordinate() {
-		this(0.0,0.0);
+		this(Double.NaN,Double.NaN);
 	}
 	
 	public Coordinate(double x, double y) {
@@ -28,6 +28,10 @@ public class Coordinate {
 
 	public double getY() {
 		return y;
+	}
+
+	public boolean isEmpty() {
+		return Double.isNaN(x) || Double.isNaN(y);
 	}
 
 }

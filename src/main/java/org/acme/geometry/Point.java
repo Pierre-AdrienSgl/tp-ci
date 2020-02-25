@@ -13,14 +13,46 @@ public class Point implements Geometry {
 	public Point(Coordinate coordinate) {
 		this.coordinate = coordinate;
 	}
+
+	public Coordinate getCoordinate() {
+		return coordinate;
+	}
 	
+	public double getX() {
+		return coordinate.getX();
+	}
+
+	public double getY() {
+		return coordinate.getY();
+	}
+
 	@Override
 	public String getType() {
 		return TYPE;
 	}
 
-	public Coordinate getCoordinate() {
-		return coordinate;
+	@Override
+	public boolean isEmpty() {
+		return this.coordinate.isEmpty();
 	}
 
+	@Override
+	public void translate(double dx, double dy) {
+		this.coordinate = new Coordinate(
+			this.coordinate.getX()+dx, 
+			this.coordinate.getY()+dy
+		);
+	}
+
+	@Override
+	public Point clone() {
+		// Remarque : coordinate est immuable
+		return new Point(coordinate);
+	}
+	
+	@Override
+	public Envelope getEnvelope() {
+		return new Envelope(coordinate,coordinate);
+	}
+	
 }
