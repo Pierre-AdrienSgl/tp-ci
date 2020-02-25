@@ -1,6 +1,6 @@
 package org.acme.geometry;
 
-public class Point implements Geometry {
+public class Point extends AbstractGeometry {
 
 	public static final String TYPE = "Point";
 
@@ -42,6 +42,7 @@ public class Point implements Geometry {
 			this.coordinate.getX()+dx, 
 			this.coordinate.getY()+dy
 		);
+		triggerChange();
 	}
 
 	@Override
@@ -51,8 +52,8 @@ public class Point implements Geometry {
 	}
 	
 	@Override
-	public Envelope getEnvelope() {
-		return new Envelope(coordinate,coordinate);
+	public void accept(GeometryVisitor visitor) {
+		visitor.visit(this);
 	}
-	
+
 }

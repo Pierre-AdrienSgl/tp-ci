@@ -37,4 +37,21 @@ public class EnvelopeBuilderTest {
 		}
 	}
 
+	@Test
+	public void testPointA() {
+		Envelope bbox = TestGeometryFactory.createSamplePointA().getEnvelope();
+		Assert.assertEquals("0.0 0.0 0.0 0.0", bbox.toString());
+	}
+	
+	@Test
+	public void testLineStringAB() {
+		Envelope bbox = TestGeometryFactory.createLineStringAB().getEnvelope();
+		Assert.assertEquals("0.0 0.0 3.0 4.0", bbox.toString());
+	}
+	
+	@Test	
+	public void testCollectionA() {
+		Envelope bbox = TestGeometryFactory.createCollectionA().getEnvelope();
+		Assert.assertEquals("0.0 0.0 3.0 4.0", bbox.toString());
+	}
 }

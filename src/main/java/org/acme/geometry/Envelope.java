@@ -5,7 +5,7 @@ package org.acme.geometry;
  * Remarque : une fois Interval créé, on se rend compte que bottonLeft et topRight
  * ne sont pas optimaux pour le stockage
  * 
- * @author MBorne
+ * 
  *
  */
 public class Envelope {
@@ -44,4 +44,13 @@ public class Envelope {
 	public double getYMax() {
 		return topRight.getY();
 	}
+
+	@Override
+	public String toString() {
+		if ( isEmpty() ) {
+			return "EMPTY";
+		}
+		return getXMin()+" "+getYMin()+" "+getXMax()+" "+getYMax();
+	}
+	
 }

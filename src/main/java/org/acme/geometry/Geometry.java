@@ -32,5 +32,28 @@ public interface Geometry {
 	 * @return
 	 */
 	public Envelope getEnvelope() ;
+	
+	/**
+	 * Renvoie le WKT
+	 * @return
+	 */
+	public String asText() ;
+
+	/**
+	 * Applique un visiteur sur la géométrie
+	 * @param visitor
+	 */
+	public void accept(GeometryVisitor visitor);
+	
+	/**
+	 * Notification des écouteurs d'événement après modification
+	 */
+	public void triggerChange();
+
+	/**
+	 * Ajout d'un listener
+	 * @param listener
+	 */
+	public void addListener(GeometryListener listener) ;
 
 }

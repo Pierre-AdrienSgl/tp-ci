@@ -29,5 +29,16 @@ public class TestGeometryFactory {
 		points.add(createSamplePointB());
 		return new LineString(points);
 	}
+	
+	/**
+	 * Collection Point et LineString
+	 * @return
+	 */
+	public static GeometryCollection createCollectionA() {
+		List<Geometry> geometries = new ArrayList<>();
+		geometries.add(createSamplePointB());
+		geometries.add(createLineStringAB());		
+		return new GeometryCollection(geometries);
+	}
 
 }
