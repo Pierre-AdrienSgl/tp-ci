@@ -23,15 +23,17 @@ L'outil d'intégration continue différent de Jenkins, et hébergé dans une pla
 
 La première ligne dans le fichier .travis.yml est :
 
-> language: java
+    language: java
 
 Cette ligne de code permet de préciser l'environement de programation utilisé et build automatiquement le projet.
 
-Ce projet utilise maven, et de ce fait, avant de build, travis installe automatiquement les dépendance à l'aide de cette commande :    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Ce projet utilise maven, et de ce fait, avant de build, travis installe automatiquement les dépendance à l'aide de cette commande :
+    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 En revanche, il n'y a pas besoin de la préciser dans le fichier, c'est une commande par défaut.
 
-Dans la même idée, comme le projet contient un fichier pom.xml, il lance aussi automatiquement la commande suivante :    mvn test -B
+Dans la même idée, comme le projet contient un fichier pom.xml, il lance aussi automatiquement la commande suivante :
+    mvn test -B
 
 C'est la commande de build du projet.
 
