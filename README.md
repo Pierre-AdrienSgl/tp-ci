@@ -45,7 +45,16 @@ Les lignes suivantes sont :
 
 Ces lignes permettent de préciser les environement de test dans lesquels ils doivent se déroulés. Il y en a deux, conformément aux attentes sur ce projet.
 
-Les dernières lignes sont :
+Les lignes suivantes sont :
+
+    after_success:
+    - mvn clean site -X -Dgithub.site.dryRun=true
+
+Ces lignes permettent, après un succès du déploiement, de mettre en ligne la documentation du projet après un clean et en mode débug (-X).
+
+De plus, la dernière option permet de passer la mise en ligne de la documentation sur GitHub pour éviter de trop long temps de build. Il suffit de l'enlever pour qu'elle fonctionne.
+
+Les lignes suivantes sont :
 
     deploy:
         provider: releases
@@ -62,3 +71,10 @@ Le provider est le service sur lequel on déploit l'application, ici il s'agit d
 skip_cleanup permet de passer l'étape de nettoyage avant déploiement.
 
 on: tags permet de ne déployer l'application seulement si on tag un push sur une branche. Il n'y aura pas de déploiement sinon.
+
+Les dernières lignes sont :
+
+    env:
+    global: c747806fdb4150a96308ba2dddbf26168ad70d37
+
+Ces lignes permettent de setup une variable globale pour travis. Il s'agit de la clé d'API GitHub pour la documentation. Elle n'est pas sécurisée.
