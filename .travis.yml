@@ -5,6 +5,9 @@ jdk:
   - openjdk8
   - openjdk14
 
+after_success:
+- mvn clean site -X -Dgithub.site.dryRun=true
+
 deploy:
   provider: releases
   api_key: $GITHUB_API_KEY
@@ -12,3 +15,6 @@ deploy:
   on:
     tags: true
     all_branches: true
+
+env:
+  global: c747806fdb4150a96308ba2dddbf26168ad70d37
