@@ -48,12 +48,12 @@ Ces lignes permettent de préciser les environement de test dans lesquels ils do
 Les dernières lignes sont :
 
     deploy:
-    provider: releases
-    api_key: $GITHUB_API_KEY
-    skip_cleanup: true
-    on:
-        tags: true
-        all_branches: true
+        provider: releases
+        api_key: $GITHUB_API_KEY
+        skip_cleanup: true
+        on:
+            tags: true
+            all_branches: true
 
 Ces lignes servent au déploiement de l'application.
 
