@@ -23,35 +23,35 @@ Description du pipeline:
 
 La première ligne dans le fichier .travis.yml est :
 
-language: java
+> language: java
 
 Cette ligne de code permet de préciser l'environement de programation utilisé et build automatiquement le projet.
 
-Ce projet utilise maven, et de ce fait, avant de build, travis installe automatiquement les dépendance à l'aide de cette commande : mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Ce projet utilise maven, et de ce fait, avant de build, travis installe automatiquement les dépendance à l'aide de cette commande : > mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 En revanche, il n'y a pas besoin de la préciser dans le fichier, c'est une commande par défaut.
 
-Dans la même idée, comme le projet contient un fichier pom.xml, il lance aussi automatiquement la commande suivante : mvn test -B
+Dans la même idée, comme le projet contient un fichier pom.xml, il lance aussi automatiquement la commande suivante : > mvn test -B
 
 C'est la commande de build du projet.
 
 Les lignes suivantes sont :
 
-jdk:
-  - openjdk8
-  - openjdk14
+> jdk:
+>   - openjdk8
+>   - openjdk14
 
 Ces lignes permettent de préciser les environement de test dans lesquels ils doivent se déroulés. Il y en a deux, conformément aux attentes sur ce projet.
 
 Les dernières lignes sont :
 
-deploy:
-  provider: releases
-  api_key: $GITHUB_API_KEY
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
+> deploy:
+>   provider: releases
+>   api_key: $GITHUB_API_KEY
+>   skip_cleanup: true
+>   on:
+>     tags: true
+>     all_branches: true
 
 Ces lignes servent au déploiement de l'application.
 
