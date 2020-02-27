@@ -75,6 +75,8 @@ on: tags permet de ne déployer l'application seulement si on tag un push sur un
 Les dernières lignes sont :
 
     env:
-    global: c747806fdb4150a96308ba2dddbf26168ad70d37
+        global:
+        - secure: un_string_très_long
 
-Ces lignes permettent de setup une variable globale pour travis. Il s'agit de la clé d'API GitHub pour la documentation. Elle n'est pas sécurisée.
+
+Ces lignes permettent de setup une variable globale pour travis. Il s'agit de la clé d'API GitHub pour la documentation (mvn site). Elle est sécurisée car elle est crypté.
