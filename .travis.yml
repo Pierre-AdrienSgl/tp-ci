@@ -1,13 +1,9 @@
-
 language: java
-
 jdk:
-  - openjdk8
-  - openjdk14
-
-  after_success:
+- openjdk8
+- openjdk14
+after_success:
 - mvn clean site -X -Dgithub.site.dryRun=true
-
 deploy:
   provider: releases
   api_key: "$GITHUB_API_KEY"
@@ -15,7 +11,6 @@ deploy:
   on:
     tags: true
     all_branches: true
-
 env:
   global:
-    secure: ieAPXN74tad0YRqlPajcjbxXKspaPSzt5jCnnQwIFNSmsLkBDdRpIxy3KaF2zATaOEOQ2+fLDUW0L8uiEU+Yr02LDFFGuYtngKjF7/S2Vte+ES5EWO5SENU99+UufhBpEQLjhDV+dCnFI4GBN0hQc7kJLXQ67iruFreSfY+BJyC7N1otsctDDqF5K7Z2P/GvkagJbEE5d+EgVuZMF3c+CQtK3XdTiutKrr8MxQn9++2fpNTu6wjkL+XywwCuNMHuyimZqk+GcfVEvoZ8KYmUD1rW2s4wzEWXQe2Hhg280YCseLk+5InVD5JU0cE40EE4p457xn8tdRyYrmp+5izNgppvIla5KdkcIjkFH4yCNgMLzY53P/D/gkHcd+RJ5aWrOhXCWxlf4i/9gPQTJV9OhQEBWW/0zqEgitBSZNfkoxsF3NEK6/zvJSD5Dia/+TIWfDrFvYaNWU/Nbn626irWHoM/ep1Ut2Y+50At2jH6Kay0X62CBTb54eOxo1P+pGwf54hE+KLZVk9Zk2/1mceZvXaK+Lt5FTlQbbiU0zwhJOaoLg1RW3a0E8ulAQWVsgw6qzl9dVMgK2ztS8GPQTtBnbSRTPUlO8InkaphyqDCZJ1nHiRIrwF4I7z5q9vwA7WGyPa6LAPLwFj/3DE05cG45mgbJzB4ay6S1KsHPlzoJSU=
+    secure: o4cm2Dmb+Ivn20+v+d71iNZNzhcVfirFQo55cNtcUh6whNbNu9w13xEer90DUqnKpB3DEL8XRULmSwVvK0VK02gVo8HnKMCR2BywhHaNZY6GMZ/YdkI0LlOy0H6u5rjsHLAopW5FgqMzuD0AioKw/lpXtBe2s6A3EL/3BTALPW8xkROGlWH86SgaXiBQnDlyB6ijmtGp+hXN03UQeyaSm8Q15Yl93ki6YGX+JKe+N2aSRJOGtJzns4VlKgax42VLmUgvgB2LiNEkqT//wl3rs6MVsAAyQd2JT6ZyNTpxTOEimztAijxuwIfEHSHqVcf1uajDkuVSJWfqGbVsiOVhDIVTgt1SE/OYa+ymRAoAMuBvBgpdABtOca8DG/w0jMNFlVDlguKsV5zBIze8OJbZo2SkSs0t9aync79FtiZfIhJual1QSFEIUxJJyrLVzhXojOCu9sopGYFXdZPEfz7YKgvvhqZ/v/0RfY5zXpG9IS0ecy42cc4sE8jEKqqfoqMjIGMIfjCInhWH8JjHPojOVEJpJMRgj1+qmTX//1IFY+Guiycob32n/A8neY0HetXBVS8EVCWnZLJrsK84qKGgGBsEsFIzJHto1LjRTqhf7Evym0LGlss7WlgJQBKVzjKHrj2uP1FROIGgH3w5gdSn36iwsQT0BicZRjocc9gDJy0=
