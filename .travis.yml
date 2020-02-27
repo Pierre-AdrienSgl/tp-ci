@@ -4,7 +4,8 @@ language: java
 jdk:
   - openjdk8
   - openjdk14
-
+after_success:
+- mvn clean site -X -Dgithub.site.dryRun=true
 deploy:
   provider: releases
   api_key: $GITHUB_API_KEY
@@ -12,3 +13,6 @@ deploy:
   on:
     tags: true
     all_branches: true
+env:
+  global:
+    secure: o4cm2Dmb+Ivn20+v+d71iNZNzhcVfirFQo55cNtcUh6whNbNu9w13xEer90DUqnKpB3DEL8XRULmSwVvK0VK02gVo8HnKMCR2BywhHaNZY6GMZ/YdkI0LlOy0H6u5rjsHLAopW5FgqMzuD0AioKw/lpXtBe2s6A3EL/3BTALPW8xkROGlWH86SgaXiBQnDlyB6ijmtGp+hXN03UQeyaSm8Q15Yl93ki6YGX+JKe+N2aSRJOGtJzns4VlKgax42VLmUgvgB2LiNEkqT//wl3rs6MVsAAyQd2JT6ZyNTpxTOEimztAijxuwIfEHSHqVcf1uajDkuVSJWfqGbVsiOVhDIVTgt1SE/OYa+ymRAoAMuBvBgpdABtOca8DG/w0jMNFlVDlguKsV5zBIze8OJbZo2SkSs0t9aync79FtiZfIhJual1QSFEIUxJJyrLVzhXojOCu9sopGYFXdZPEfz7YKgvvhqZ/v/0RfY5zXpG9IS0ecy42cc4sE8jEKqqfoqMjIGMIfjCInhWH8JjHPojOVEJpJMRgj1+qmTX//1IFY+Guiycob32n/A8neY0HetXBVS8EVCWnZLJrsK84qKGgGBsEsFIzJHto1LjRTqhf7Evym0LGlss7WlgJQBKVzjKHrj2uP1FROIGgH3w5gdSn36iwsQT0BicZRjocc9gDJy0=
