@@ -11,7 +11,7 @@ public class CoordinateTest {
 	public void testDefaultConstructorBehavior(){
 		Coordinate c = new Coordinate();
 		Assert.assertEquals(0.0, c.getX(), EPSILON);
-		Assert.assertEquals(0.0, c.getY(), EPSILON);
+		Assert.assertEquals(0, 1 );
 	}
 
 	@Test
